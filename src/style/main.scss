@@ -1,9 +1,47 @@
+@import '../../node_modules/bulma/bulma.sass';
+
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  text-align: center;
+    background: #041221;
 }
 
-img {
-  display: block;
-  margin: 50px auto;
+.card {
+    overflow: hidden
+}
+
+.card.large {
+    height: 600px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: initial;
+    border-radius: 5px;
+}
+
+.media-content {
+    overflow: hidden;
+}
+
+.title.no-padding {
+    margin-bottom: 0 !important;
+}
+
+.footer {
+    background-color: #222831;
+    color: lemonchiffon;
+}
+
+.footer p,
+strong {
+    color: lemonchiffon
+}
+
+.footer a:hover {
+    color: crimson;
+}
+
+.fa {
+    color: lemonchiffon;
+    margin: 10px
+}
+
+::selection {
+    background-color: #DEF4FF
 }
