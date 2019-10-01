@@ -1,7 +1,11 @@
-# 🚀 Static HTML Webpack Boilerplate
-[![GitHub version](https://badge.fury.io/gh/erickzhao%2Fstatic-html-webpack-boilerplate.svg)](https://badge.fury.io/gh/erickzhao%2Fstatic-html-webpack-boilerplate)
-[![Build Status](https://api.travis-ci.org/erickzhao/static-html-webpack-boilerplate.svg?branch=master)](https://travis-ci.org/erickzhao/static-html-webpack-boilerplate)
+# 🚀 Static Blog
+
+[![GitHub version](https://badge.fury.io/gh/peter-stoyanov%2Fstatic_blog.svg)](https://badge.fury.io/gh/peter-stoyanov%2Fstatic_blog)
+
+[![Build Status](https://travis-ci.org/peter-stoyanov/static_blog.svg?branch=master)](https://travis-ci.org/peter-stoyanov/static_blog)
+
 [![Dev Dependencies](https://david-dm.org/erickzhao/static-html-webpack-boilerplate/dev-status.svg)](https://david-dm.org/erickzhao/static-html-webpack-boilerplate?type=dev)
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a81c78b2255343a2a1c86abb564431a9)](https://app.codacy.com/app/erickzhao/static-html-webpack-boilerplate?utm_source=github.com&utm_medium=referral&utm_content=erickzhao/static-html-webpack-boilerplate&utm_campaign=Badge_Grade_Dashboard)
 
 <p align="center">
@@ -31,7 +35,7 @@ Enjoy hand-writing your HTML? Keep it old-school with modern build tools. This b
   - `npm run run lint:js`: Lints JS with ESLint.
   - `npm run lint:styles`: Lints SCSS stylesheets with stylelint.
   - `npm run lint:html`: Lints HTML for a11y issues using pa11y.
-  
+
 ## 🔄 Continuous Integration
 
 This boilerplate contains integration with [Travis CI](https://travis-ci.org/). The build system runs all linting scripts and deploys to GitHug pages upon push to the `master` branch. However, note that this deployment flow only works for Project Pages, as User and Organization pages [only support the master branch flow](https://help.github.com/articles/user-organization-and-project-pages/).
