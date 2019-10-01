@@ -10,7 +10,7 @@
     "lint:html": "pa11y-ci ./src/**/*.html",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js",
     "start": "webpack --config webpack.config.prod.js && http-server ./dist -o",
-    "release-it": "release-it"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "pa11y-ci": "^2.1.1",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^0.5.1",
+    "release-it": "^12.4.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "stylelint": "^9.5.0",
@@ -53,9 +54,7 @@
     "> 1%",
     "last 2 versions"
   ],
-  "dependencies": {
-    "release-it": "^12.4.1"
-  },
+  "dependencies": {},
   "release-it": {
     "non-interactive": true,
     "hooks": {},
