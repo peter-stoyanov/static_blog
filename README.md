@@ -31,7 +31,6 @@ Enjoy hand-writing your HTML? Keep it old-school with modern build tools. This b
   - `npm run start`: Builds files and runs a local production server on `localhost:8080` with `http-server`.
   - `npm run run lint:js`: Lints JS with ESLint.
   - `npm run lint:styles`: Lints SCSS stylesheets with stylelint.
-  - `npm run lint:html`: Lints HTML for a11y issues using pa11y.
 
 ## 🔄 Continuous Integration
 
