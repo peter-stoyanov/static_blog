@@ -5,7 +5,7 @@ body {
 }
 
 .card {
-    overflow: hidden
+    overflow: hidden;
 }
 
 .card.large {
@@ -30,7 +30,7 @@ body {
 
 .footer p,
 strong {
-    color: lemonchiffon
+    color: lemonchiffon;
 }
 
 .footer a:hover {
@@ -39,9 +39,9 @@ strong {
 
 .fa {
     color: lemonchiffon;
-    margin: 10px
+    margin: 10px;
 }
 
 ::selection {
-    background-color: #DEF4FF
+    background-color: #def4ff;
 }
