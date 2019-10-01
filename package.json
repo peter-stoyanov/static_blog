@@ -9,7 +9,8 @@
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "lint:html": "pa11y-ci ./src/**/*.html",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js",
-    "start": "webpack --config webpack.config.prod.js && http-server ./dist -o"
+    "start": "webpack --config webpack.config.prod.js && http-server ./dist -o",
+    "release-it": "release-it"
   },
   "repository": {
     "type": "git",
@@ -54,5 +55,29 @@
   ],
   "dependencies": {
     "release-it": "^12.4.1"
+  },
+  "release-it": {
+    "non-interactive": true,
+    "hooks": {},
+    "git": {
+      "changelog": "git log --pretty=format:\"* %s (%h)\" ${latestTag}...HEAD",
+      "requireCleanWorkingDir": false,
+      "requireUpstream": false,
+      "requireCommits": false,
+      "addUntrackedFiles": false,
+      "commit": true,
+      "commitMessage": "Release ${version}",
+      "commitArgs": "",
+      "tag": true,
+      "tagName": "${version}",
+      "tagAnnotation": "Release ${version}",
+      "tagArgs": "",
+      "push": false,
+      "pushArgs": "--follow-tags",
+      "pushRepo": "origin"
+    },
+    "npm": {
+      "publish": false
+    }
   }
 }

@@ -1,11 +1,8 @@
 # 🚀 Static Blog
 
 [![GitHub version](https://badge.fury.io/gh/peter-stoyanov%2Fstatic_blog.svg)](https://badge.fury.io/gh/peter-stoyanov%2Fstatic_blog)
-
 [![Build Status](https://travis-ci.org/peter-stoyanov/static_blog.svg?branch=master)](https://travis-ci.org/peter-stoyanov/static_blog)
-
 [![Dev Dependencies](https://david-dm.org/erickzhao/static-html-webpack-boilerplate/dev-status.svg)](https://david-dm.org/erickzhao/static-html-webpack-boilerplate?type=dev)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a81c78b2255343a2a1c86abb564431a9)](https://app.codacy.com/app/erickzhao/static-html-webpack-boilerplate?utm_source=github.com&utm_medium=referral&utm_content=erickzhao/static-html-webpack-boilerplate&utm_campaign=Badge_Grade_Dashboard)
 
 <p align="center">
