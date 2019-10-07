@@ -1,0 +1,5 @@
+<head><link href="main.css" rel="stylesheet"></head><h1 id="install-package-for-virtual-environment-support">Install package for virtual environment support</h1>
+<pre><code>python -m pip install virtualenv</code></pre><pre><code>python -m virtualenv env</code></pre><p>// in folder with env</p>
+<pre><code>source ./env/Scripts/activate</code></pre><p>On windows no source command, just run this:</p>
+<pre><code>venv\Scripts\activate</code></pre><p>which python = should be path to project folder, not system wide</p>
+<pre><code>python -m pip freeze &gt; requirements.txt</code></pre><pre><code>python -m pip install -r requirements.txt</code></pre><script type="text/javascript" src="app.bundle.js"></script>
