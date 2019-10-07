@@ -1,0 +1,39 @@
+<h1 id="ts-lint-custom-ban-rule">TS lint custom ban rule</h1>
+<p>TS linter allows for the creation of custom rules.</p>
+<p>One such example is a rule which traverses the source code and looks for a value which is not allowed - in this case the word &#39;only&#39;</p>
+<pre><code class="language-typescript">import * as Lint from &#39;tslint&#39;;
+import * as ts from &#39;typescript&#39;;
+
+export class Rule extends Lint.Rules.AbstractRule {
+    public static FAILURE_STRING = &#39;Use of only keyword is disallowed.&#39;;
+
+    public static metadata: Lint.IRuleMetadata = {
+        ruleName: &#39;no-only-filter&#39;,
+        description: &#39;Helps to keep your imports in order.&#39;,
+        options: null,
+        optionsDescription: null,
+        type: &#39;functionality&#39;,
+        typescriptOnly: false,
+        hasFix: false,
+        requiresTypeInfo: false
+      };
+
+    public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
+        return this.applyWithWalker(new Walk(sourceFile, this.getOptions()));
+    }
+}
+
+class Walk extends Lint.RuleWalker {
+    protected visitSourceFile(node: ts.SourceFile) {
+        if (node.text.match(/\.only\./g)) {
+            const errorStart = node.text.indexOf(&#39;.only&#39;);
+            this.addFailureAt(errorStart, &#39;.only&#39;.length, Rule.FAILURE_STRING);
+        }
+
+        super.visitSourceFile(node);
+    }
+}</code></pre>
+<p>There are a few conventions that need to be considered in order for the rule to work. The name of the class should be Rule and it should inherit from <code>Lint.Rules.AbstractRule</code>. The name of the file itself should have Rule as suffix as well.</p>
+<p>When ready with the logic you should compile the source file to a Javscipt: <code>tsc noFilterRule.ts</code></p>
+<p>In your tslint.json configuration file add <code>&quot;rulesDirectory&quot;: &quot;./tslint-rules&quot;</code> and also turn the rule on under rules section like that: <code>&quot;no-only-filter&quot;: true,</code></p>
+<p>TS lint should now pickup the new rule and report any violations. The position of the error reported will be as calculated in the <code>errorStart</code> variable passed to <code>addFailureAt</code> method.</p>

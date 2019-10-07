@@ -1,0 +1,30 @@
+<h1 id="using-gmail-api-with-nodejs">Using Gmail API with Node.js</h1>
+<p>Accessing gmail messages from a backend app in a Node.js environment</p>
+<h2 id="getting-started">Getting started</h2>
+<p>This <a href="https://developers.google.com/gmail/api/quickstart/nodejs">sample</a> was the base script from which I started. On this page you need to click on generate credentials and save the downloaded <code>credentials.json</code> file in the project workspace under credentials folder.</p>
+<p>The first time you run the project you&#39;ll be asked to visit an URL and authorize the project for specific scopes. Then copy and paste the authorization code in the console. The code will exchange the code for a combination of a access and refresh token. These tokens will be actually used to authenticate requests.</p>
+<p>In case you won&#39;t be using the trashMessage functionality you could change the scopes array to include only the <strong>readonly</strong> one.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need a npm package: <a href="https://www.npmjs.com/package/googleapis">https://www.npmjs.com/package/googleapis</a></p>
+<p>A list of the available API calls, requests and responses is accessible here: <a href="https://www.npmjs.com/package/googleapis#samples">https://www.npmjs.com/package/googleapis#samples</a></p>
+<p>Search operators that can be used in constructing the filter expression: <a href="https://support.google.com/mail/answer/7190?hl=en">https://support.google.com/mail/answer/7190?hl=en</a></p>
+<h2 id="filtering-emails">Filtering emails</h2>
+<p>A custom query expression can be build with the query builder:</p>
+<pre><code class="language-javascript">const query = gmail.queryBuilder
+    .new()
+    .from(&#39;nachricht.stage@bitkasten.de&#39;)
+    .read(true)
+    .withSubject(&#39;Eine Sendung aus Ihrem [:::(bit)kasten] ist eingetroffen&#39;)
+    .withAttachment()
+    .withFile(&#39;DBENW-20190910-dEAim.pds&#39;)
+    .newerThan(&#39;1d&#39;);</code></pre>
+<p>and used like that:</p>
+<pre><code class="language-javascript">const result = await gmail.api.getMessage(query.build());</code></pre>
+<p>Due to the fact that we don&#39;t know when exactly a new message will appear in the inbox the call to getMessage() is going to retry up to a certain time limit: <code>const timeLimit = timeout || 5 * 60 * 1000;</code>.</p>
+<p>The result from the getMessage() call will resolve to a object with this shape:</p>
+<pre><code class="language-javascript">resolve({
+    exists: true,
+    messageId: message.id,
+    body: bodyText
+});</code></pre>
+<p>The whole project source code can be found in this <a href="https://github.com/peter-stoyanov/gmail_connector">repo</a>.</p>
